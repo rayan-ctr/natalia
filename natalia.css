@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #ffcccb;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.message {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Add glowing effect to the message */
+.message h1 {
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000;
+    }
+    to {
+        text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+    }
+}
+
+.hearts {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: red;
+    transform: rotate(45deg);
+    animation: fall linear infinite;
+    top: -10%;
+    left: calc(100% * var(--random-x));
+    animation-duration: calc(2s + 3s * var(--random-speed));
+    opacity: 0.8;
+}
+
+/* Add hover effect to hearts */
+.heart:hover {
+    background: pink;
+    transform: scale(1.2) rotate(45deg);
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -25px;
+    left: 0;
+}
+
+.heart:after {
+    left: -25px;
+    top: 0;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Generate many hearts with random positions and speeds */
+.hearts .heart:nth-child(1) { --random-x: 0.1; --random-speed: 0.5; animation-delay: 0s; }
+.hearts .heart:nth-child(2) { --random-x: 0.2; --random-speed: 0.7; animation-delay: 0.5s; }
+.hearts .heart:nth-child(3) { --random-x: 0.3; --random-speed: 0.6; animation-delay: 1s; }
+.hearts .heart:nth-child(4) { --random-x: 0.4; --random-speed: 0.8; animation-delay: 1.5s; }
+.hearts .heart:nth-child(5) { --random-x: 0.5; --random-speed: 0.9; animation-delay: 2s; }
+.hearts .heart:nth-child(6) { --random-x: 0.6; --random-speed: 0.4; animation-delay: 2.5s; }
+.hearts .heart:nth-child(7) { --random-x: 0.7; --random-speed: 0.5; animation-delay: 3s; }
+.hearts .heart:nth-child(8) { --random-x: 0.8; --random-speed: 0.6; animation-delay: 3.5s; }
+.hearts .heart:nth-child(9) { --random-x: 0.9; --random-speed: 0.7; animation-delay: 4s; }
+.hearts .heart:nth-child(10) { --random-x: 1; --random-speed: 0.8; animation-delay: 4.5s; }
